@@ -1,4 +1,4 @@
-var friendsData = [
+var friends = [
     {
         "name": "Nicole",
         "photo": "https://avatars2.githubusercontent.com/u/41495085?s=400&u=cfd29ef6296e5f270ef2fa014ad74c37a538c12b&v=4",
@@ -33,4 +33,4 @@ var friendsData = [
     }
 ];
 
-module.exports = friendsData;
+module.exports = friends;
