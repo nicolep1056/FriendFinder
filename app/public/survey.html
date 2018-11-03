@@ -16,14 +16,14 @@
         <div class='card-panel yellow darken-1 col s12 center-align'>
             <h4><strong>Survey Questions</strong></h4>
             <div class='card-panel left-align white'>
-                <h5><strong>About You</strong></h5>
+                <h5><strong>Friend Info</strong></h5>
                 <br>
                 <input id="name" type="text" class="validate" required>
                 <label class='active' for="name">Name (required)</label>
                 <input id="photo" type="text" class="validate" required>
                 <label class='active' for="name">Link to Photo Image (required)</label>
                 <h5><strong>Question 1</strong></h5>
-                <p>I see myself as extroverted, enthusiastic.</p>
+                <p>I tend to be introverted.</p>
                 <select data-placeholder="" class="browser-default" id="q1">
                     <option value="">Choose an option</option>
                     <option value="1">1 (Strongly Disagree)</option>
@@ -33,7 +33,7 @@
                     <option value="5">5 (Strongly Agree)</option>
                 </select>
                 <h5><strong>Question 2</strong></h5>
-                <p>I see myself as critical, quarrelsome.</p>
+                <p>If I commit to a planned event, I'll be there.</p>
                 <select data-placeholder="" class="browser-default" id="q2">
                     <option value="">Choose an option</option>
                     <option value="1">1 (Strongly Disagree)</option>
@@ -43,7 +43,7 @@
                     <option value="5">5 (Strongly Agree)</option>
                 </select>
                 <h5><strong>Question 3</strong></h5>
-                <p>I see myself as dependable, self-disciplined.</p>
+                <p>I see myself as empathetic.</p>
                 <select data-placeholder="" class="browser-default" id="q3">
                     <option value="">Choose an option</option>
                     <option value="1">1 (Strongly Disagree)</option>
@@ -53,7 +53,7 @@
                     <option value="5">5 (Strongly Agree)</option>
                 </select>
                 <h5><strong>Question 4</strong></h5>
-                <p>I see myself as anxious, easily upset.</p>
+                <p>I prefer a night at home to a night out.</p>
                 <select data-placeholder="" class="browser-default" id="q4">
                     <option value="">Choose an option</option>
                     <option value="1">1 (Strongly Disagree)</option>
@@ -63,7 +63,7 @@
                     <option value="5">5 (Strongly Agree)</option>
                 </select>
                 <h5><strong>Question 5</strong></h5>
-                <p>I see myself as open to new experiences.</p>
+                <p>I am open to new experiences.</p>
                 <select data-placeholder="" class="browser-default" id="q5">
                     <option value="">Choose an option</option>
                     <option value="1">1 (Strongly Disagree)</option>
@@ -73,7 +73,7 @@
                     <option value="5">5 (Strongly Agree)</option>
                 </select>
                 <h5><strong>Question 6</strong></h5>
-                <p>I see myself as reserved, quiet</p>
+                <p>I am very organized.</p>
                 <select data-placeholder="" class="browser-default" id="q6">
                     <option value="">Choose an Option</option>
                     <option value="1">1 (Strongly Disagree)</option>
@@ -83,7 +83,7 @@
                     <option value="5">5 (Strongly Agree)</option>
                 </select>
                 <h5><strong>Question 7</strong></h5>
-                <p>I see myself as sympathetic.</p>
+                <p>I am loyal to those close to me.</p>
                 <select data-placeholder="" class="browser-default" id="q7">
                     <option value="">Choose an option</option>
                     <option value="1">1 (Strongly Disagree)</option>
@@ -93,7 +93,7 @@
                     <option value="5">5 (Strongly Agree)</option>
                 </select>
                 <h5><strong>Question 8</strong></h5>
-                <p>I see myself as disorganized.</p>
+                <p>I enjoy outdoor activities.</p>
                 <select data-placeholder="" class="browser-default" id="q8">
                     <option value="">Choose an option</option>
                     <option value="1">1 (Strongly Disagree)</option>
@@ -103,7 +103,7 @@
                     <option value="5">5 (Strongly Agree)</option>
                 </select>
                 <h5><strong>Question 9</strong></h5>
-                <p>I see myself as calm, emotionally stable.</p>
+                <p>I favor logic over emotion.</p>
                 <select data-placeholder="" class="browser-default" id="q9">
                     <option value="">Choose an option</option>
                     <option value="1">1 (Strongly Disagree)</option>
@@ -113,7 +113,7 @@
                     <option value="5">5 (Strongly Agree)</option>
                 </select>
                 <h5><strong>Question 10</strong></h5>
-                <p>I see myself as practical, conventional.</p>
+                <p>I am the life of the party.</p>
                 <select data-placeholder="" class="browser-default" id="q10">
                     <option value="">Choose an option</option>
                     <option value="1">1 (Strongly Disagree)</option>
@@ -136,7 +136,6 @@
         </div>
 
 
-        <!-- Modal for results -->
         <!-- <div id="modal-match">
             <div class="modal-content">
                 <h4 class="modal-title">Your Best Match</h4>
@@ -165,56 +164,69 @@
 
     <script type="text/javascript">
         /* $(document).ready(function() { */
-        $("#submit").on("click", function () {
+        $("#submit").on("click", function (event) {
             event.preventDefault();
 
-            /*         function validateForm() {
-                        var isValid = true;
-                        $('.validate').each(function() {
-                            if ($(this).val() === ''){
-                                isValid = false;
-                            }
-                        });
-                        $('.browser-default').each(function() {
-                            if ($(this).val() === ""){
-                                isValid = false;
-                            }
-                        });
-                        return isValid;
+            function validateForm() {
+                var isValid = true;
+                $('.validate').each(function () {
+                    if ($(this).val() === '') {
+                        isValid = false;
                     }
-                    //if everything is filled
-                    if (validateForm() == true) {
-                        //creates a new friend from the values submitted */
-            let newFriend = {
-                name: $('#name').val().trim(),
-                profilePic: $('#photo').val().trim(),
-                scores: [
-                    $('#q1').val(),
-                    $('#q2').val(),
-                    $('#q3').val(),
-                    $('#q4').val(),
-                    $('#q5').val(),
-                    $('#q6').val(),
-                    $('#q7').val(),
-                    $('#q8').val(),
-                    $('#q9').val(),
-                    $('#q10').val()
-                ]
-            };
+                });
+                $('.browser-default').each(function () {
+                    if ($(this).val() === "") {
+                        isValid = false;
+                    }
+                });
+                return isValid;
+            }
+            //if everything is filled
+            if (validateForm() == true) {
+                //creates a new friend from the values submitted */
+                var newFriend = {
+                    name: $('#name').val(),
+                    photo: $('#photo').val(),
+                    scores: [
+                        $('#q1').val(),
+                        $('#q2').val(),
+                        $('#q3').val(),
+                        $('#q4').val(),
+                        $('#q5').val(),
+                        $('#q6').val(),
+                        $('#q7').val(),
+                        $('#q8').val(),
+                        $('#q9').val(),
+                        $('#q10').val()
+                    ]
+                };
 
-            $.post("/api/friends", newFriend, function (data) {
-                if (!data) {
-                    alert("Please fill out all fields before clicking Submit!");
-                }
-                else {
-                    $(".validate").val("");
+                $.post("/api/friends", newFriend, function (data) {
 
                     $("#matchName").text(data.name);
-                    $("#matchPic").attr("src", data.profilePic);
-                }
-            });
+                    $("#matchPic").attr("src", data.photo);
+                    
+                    // Show best match modal
+                    $('.modal').modal("toggle");
+                    //clear form
+                    $('#name').val("");
+                    $('#photo').val("");
+                    $('#q1').val("");
+                    $('#q2').val("");
+                    $('#q3').val("");
+                    $('#q4').val("");
+                    $('#q5').val("");
+                    $('#q6').val("");
+                    $('#q7').val("");
+                    $('#q8').val("");
+                    $('#q9').val("");
+                    $('#q10').val("");
+                });
+            } else {
+                alert("Please fill out all fields before clicking submit!")
+            }
             // Show best match modal
-            /* $('.modal').modal(); */
+            $('.modal').modal("toggle");
             //clear form
             $('#name').val("");
             $('#photo').val("");
@@ -229,7 +241,7 @@
             $('#q9').val("");
             $('#q10').val("");
         });
-    
+
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>

@@ -1,10 +1,9 @@
 var path = require("path")
-var friends = require('../data/friends.js');
+var friends = require('../data/friends');
 
 
-module.exports = function (app) {
 
-    var friendList = require('../data/friend.js');
+
 
     module.exports = function (app) {
 
@@ -22,7 +21,7 @@ module.exports = function (app) {
                 var scoresDiff = 0;
 
                 for (var j = 0; j < newFriendScores.length; j++) {
-                    scoresDiff += (Math.abs(parseInt(friendList[i].scores[j]) - parseInt(newFriendScores[j])));
+                    scoresDiff += (Math.abs(parseInt(friends[i].scores[j]) - parseInt(newFriendScores[j])));
                 }
 
                 scoresArray.push(scoresDiff);
@@ -34,7 +33,7 @@ module.exports = function (app) {
                 }
             }
 
-            var bestFriendMatch = friendList[bestMatch];
+            var bestFriendMatch = friends[bestMatch];
 
             console.log(bestFriendMatch);
 
@@ -42,4 +41,3 @@ module.exports = function (app) {
             res.json(bestFriendMatch);
         });
     };
-};
