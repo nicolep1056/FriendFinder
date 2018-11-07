@@ -17,7 +17,7 @@ var friends = [
     },
     {
         "name": "Jamison",
-        "photo": "",
+        "photo": "https://scontent-dfw5-1.xx.fbcdn.net/v/t1.0-9/44845543_10106684223105407_5356798716126691328_n.jpg?_nc_cat=100&_nc_ht=scontent-dfw5-1.xx&oh=591940cd2acc96ba62ad108f68f319a2&oe=5C89A86E",
         "scores": [
             4,
             3,
