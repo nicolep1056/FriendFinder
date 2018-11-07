@@ -129,11 +129,11 @@
             </div>
         </div>
 
-        <div>
+<!--         <div>
             <h3 id="matchName">
             </h3>
             <img id="matchPic">
-        </div>
+        </div> -->
 
         <div class="modal modal-dialog-center" role="dialog" id="showmodal">
             <div class="modal-content">
@@ -222,7 +222,7 @@
 
                 $.post("/api/friends", newFriend, function (data) {
                     // Show best match modal
-                     $('.modal').modal("show");
+                     $('#showmodal').modal("show");
 
                     $("#matchName").text(data.name);
                     $("#matchPic").attr("src", data.photo);
